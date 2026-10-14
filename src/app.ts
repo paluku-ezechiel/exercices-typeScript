@@ -1,0 +1,92 @@
+// const a: string = "Hello world";
+// const n: number = 4;
+// const b: boolean = true;
+// const d: null = null;
+// const array: string[] = ["abc", "Joseph"];
+// const user: { firstname: string; [key: string]: string } = {
+//   firstname: "Ezechiel",
+//   lastname: "Paluku",
+// };
+
+// const date: Date = new Date();
+
+// const compteur = <HTMLButtonElement>document.querySelector("#compteur");
+// const span = compteur?.querySelector("span") as HTMLSpanElement | null;
+// let i = 0;
+// const increment = (e: Event) => {
+//   e.preventDefault();
+//   i++;
+//   if (span) {
+//     span.innerText = i.toString();
+//   }
+// };
+// compteur?.addEventListener("click", increment);
+
+// function printedId(id: number | string) {
+//   if (typeof id === "number") {
+//     console.log((id * 3).toString());
+//   } else {
+//     console.log(id.toUpperCase());
+//   }
+// }
+// printedId(10);
+
+// type Users = {
+//   firstname: string;
+//   lastname: string;
+// };
+
+// const user: Users = { firstname: "Ezechiel", lastname: "Paluku" };
+// console.log(user);
+
+// function identity<ArgType>(arg: ArgType): ArgType {
+//   return arg;
+// }
+// const aa = identity<number>(3);
+// console.log(aa);
+
+// function identity<ArgType>(arg: ArgType): ArgType {
+//   return arg;
+// }
+// const a = identity<string>("Ezechiel");
+// console.log(a.toUpperCase());
+
+// function consoleSize<Type extends {length:number}>(arg: Type): Type {
+//   console.log(arg.length);
+//   return arg;
+// }
+
+// const abb = consoleSize([4]);
+
+// function reverse<T>(arr: readonly T[]): T[] {
+//   return [...arr].reverse();
+// }
+// console.log(reverse<number | string>(["Joel", "joram", "Josue", 40]));
+
+type UserRole = "admin" | "user";
+
+type Users = {
+  id: number;
+  name: string;
+  role: UserRole;
+};
+
+const listUsers: Users[] = [
+  { id: 1, name: "Cedric", role: "admin" },
+  { id: 2, name: "Tacite", role: "user" },
+];
+
+const getWelcomeMessage = (userId: number): string => {
+  const user = listUsers.find((u) => u.id === userId);
+  if (user) {
+    if (user.role === "admin") {
+      return `Bienvenue Administrateur ${user.name} !`;
+    } else {
+      return `Bonjour ${user.name}`;
+    }
+  }
+
+  return "Welcom";
+};
+
+console.log(getWelcomeMessage(1));
