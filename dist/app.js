@@ -8,20 +8,18 @@
 //   firstname: "Ezechiel",
 //   lastname: "Paluku",
 // };
-const listUsers = [
-    { id: 1, name: "Cedric", role: "admin" },
-    { id: 2, name: "Tacite", role: "user" },
+const listOrders = [
+    { id: "CMD_101", amount: 45.5, status: "en_cours" },
+    { id: "CMD_102", amount: 120.0, status: "livre" },
 ];
-const getWelcomeMessage = (userId) => {
-    const user = listUsers.find((u) => u.id === userId);
-    if (user) {
-        if (user.role === "admin") {
-            return `Bienvenue Administrateur ${user.name} !`;
-        }
-        else {
-            return `Bonjour ${user.name}`;
-        }
+const getOrderStatusMessage = (orderId) => {
+    const order = listOrders.find((orde) => orde.id === orderId);
+    if (!order) {
+        return `Cannot read properties of undefined`;
     }
-    return "Welcom";
+    if (order.status === "livre") {
+        return `La commande ${order.id} a été livrée avec succès !`;
+    }
+    return `La commande ${order.id} est toujours en cours de préparation.`;
 };
-console.log(getWelcomeMessage(1));
+console.log(getOrderStatusMessage("CMD_105"));

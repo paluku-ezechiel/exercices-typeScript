@@ -63,30 +63,58 @@
 // }
 // console.log(reverse<number | string>(["Joel", "joram", "Josue", 40]));
 
-type UserRole = "admin" | "user";
+// type UserRole = "admin" | "user";
 
-type Users = {
-  id: number;
-  name: string;
-  role: UserRole;
+// type Users = {
+//   id: number;
+//   name: string;
+//   role: UserRole;
+// };
+
+// const listUsers: Users[] = [
+//   { id: 1, name: "Cedric", role: "admin" },
+//   { id: 2, name: "Tacite", role: "user" },
+// ];
+
+// const getWelcomeMessage = (userId: number): string => {
+//   const user = listUsers.find((u) => u.id === userId);
+//   if (user) {
+//     if (user.role === "admin") {
+//       return `Bienvenue Administrateur ${user.name} !`;
+//     } else {
+//       return `Bonjour ${user.name}`;
+//     }
+//   }
+
+//   return "Welcom";
+// };
+
+// console.log(getWelcomeMessage(1));
+
+type Status = "en_cours" | "livre";
+
+type Orders = {
+  id: string;
+  amount: number;
+  status: Status;
 };
 
-const listUsers: Users[] = [
-  { id: 1, name: "Cedric", role: "admin" },
-  { id: 2, name: "Tacite", role: "user" },
+const listOrders: Orders[] = [
+  { id: "CMD_101", amount: 45.5, status: "en_cours" },
+  { id: "CMD_102", amount: 120.0, status: "livre" },
 ];
 
-const getWelcomeMessage = (userId: number): string => {
-  const user = listUsers.find((u) => u.id === userId);
-  if (user) {
-    if (user.role === "admin") {
-      return `Bienvenue Administrateur ${user.name} !`;
-    } else {
-      return `Bonjour ${user.name}`;
-    }
+const getOrderStatusMessage = (orderId: string): string => {
+  const order = listOrders.find((orde) => orde.id === orderId);
+  if (!order) {
+    return `Cannot read properties of undefined`;
   }
 
-  return "Welcom";
+  if (order.status === "livre") {
+    return `La commande ${order.id} a été livrée avec succès !`;
+  }
+
+  return `La commande ${order.id} est toujours en cours de préparation.`;
 };
 
-console.log(getWelcomeMessage(1));
+console.log(getOrderStatusMessage("CMD_105"));
