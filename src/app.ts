@@ -91,30 +91,64 @@
 
 // console.log(getWelcomeMessage(1));
 
-type Status = "en_cours" | "livre";
+// type Status = "en_cours" | "livre";
 
-type Orders = {
-  id: string;
-  amount: number;
-  status: Status;
+// type Orders = {
+//   id: string;
+//   amount: number;
+//   status: Status;
+// };
+
+// const listOrders: Orders[] = [
+//   { id: "CMD_101", amount: 45.5, status: "en_cours" },
+//   { id: "CMD_102", amount: 120.0, status: "livre" },
+// ];
+
+// const getOrderStatusMessage = (orderId: string): string => {
+//   const order = listOrders.find((orde) => orde.id === orderId);
+//   if (!order) {
+//     return `Cannot read properties of undefined`;
+//   }
+
+//   if (order.status === "livre") {
+//     return `La commande ${order.id} a été livrée avec succès !`;
+//   }
+
+//   return `La commande ${order.id} est toujours en cours de préparation.`;
+// };
+
+// console.log(getOrderStatusMessage("CMD_105"));
+
+type EmailNotification = {
+  type: "email";
+  email: string;
+  sujet: string;
+  message: string;
 };
 
-const listOrders: Orders[] = [
-  { id: "CMD_101", amount: 45.5, status: "en_cours" },
-  { id: "CMD_102", amount: 120.0, status: "livre" },
-];
-
-const getOrderStatusMessage = (orderId: string): string => {
-  const order = listOrders.find((orde) => orde.id === orderId);
-  if (!order) {
-    return `Cannot read properties of undefined`;
-  }
-
-  if (order.status === "livre") {
-    return `La commande ${order.id} a été livrée avec succès !`;
-  }
-
-  return `La commande ${order.id} est toujours en cours de préparation.`;
+type SMSNotification = {
+  type: "sms";
+  telephone: string;
+  message: string;
 };
 
-console.log(getOrderStatusMessage("CMD_105"));
+type AppNotification = EmailNotification | SMSNotification;
+
+const sendNotification = (notification: AppNotification): void => {
+  if (notification.type === "email") {
+    console.log(
+      `Email envoyé à ${notification.email} (Sujet: ${notification.sujet}): ${notification.sujet}`,
+    );
+  } else if (notification.type === "sms") {
+    console.log(
+      `SMS envoyé au ${notification.telephone}: ${notification.message}`,
+    );
+  }
+};
+
+sendNotification({
+  type: "email",
+  email: "test@test.com",
+  sujet: "Hello",
+  message: "Hi",
+});
