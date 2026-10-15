@@ -171,10 +171,17 @@
 // const compte: Utilisateur[] = [
 //   { nom: "Ezechiel", email: "palukuezechiel@gmail.com", role:"admin" },
 // ];
-function genererMention(note) {
-    if (note >= 10) {
-        return "Validé";
+// function genererMention(note: number): string {
+//   if (note >= 10) {
+//     return "Validé";
+//   }
+//   return "Rattrapage";
+// }
+// console.log(genererMention(8));
+function afficherPanier(panier) {
+    if (panier.length === 0) {
+        return "Votre panier est vide.";
     }
-    return "Rattrapage";
+    return `Vous avez ${panier.length} article(s) dans votre panier`;
 }
-console.log(genererMention(8));
+console.log(afficherPanier(["Livre", "Stylo", "Sac"]));

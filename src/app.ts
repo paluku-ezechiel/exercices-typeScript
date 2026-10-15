@@ -213,12 +213,21 @@
 //   { nom: "Ezechiel", email: "palukuezechiel@gmail.com", role:"admin" },
 // ];
 
-function genererMention(note: number): string {
-  if (note >= 10) {
-    return "Validé";
-  }
+// function genererMention(note: number): string {
+//   if (note >= 10) {
+//     return "Validé";
+//   }
 
-  return "Rattrapage";
+//   return "Rattrapage";
+// }
+// console.log(genererMention(8));
+
+function afficherPanier<T>(panier: T[]): string {
+  if (panier.length === 0) {
+    return "Votre panier est vide.";
+  }
+  return `Vous avez ${panier.length} article(s) dans votre panier`;
 }
-console.log(genererMention(8));
+
+console.log(afficherPanier<string>(["Livre", "Stylo", "Sac"]));
 
