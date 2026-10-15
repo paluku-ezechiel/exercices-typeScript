@@ -156,15 +156,50 @@
 // type Coordonnees = [x: number, y: number];
 // const point:Coordonnees = [10, 25];
 
-enum Couleur {
-  Rouge = "ROUGE",
-  Bleu = "BLEU",
+// enum Couleur {
+//   Rouge = "ROUGE",
+//   Bleu = "BLEU",
+// }
+
+// function peindre(couleur:Couleur){
+//     if(couleur === Couleur.Rouge){
+//         console.log("Peinture rouge appliquée !");
+//     }
+// }
+
+// peindre(Couleur.Rouge)
+
+// function a(arg: unknown) {
+//   if (arg instanceof HTMLInputElement) {
+//     arg.value = "Hello";
+//   }
+// }
+// type ListeItem = [string, number];
+
+// const a: ListeItem = ["tomate", 2];
+// const b: ListeItem = ["banane", 3];
+
+// function merge<T extends unknown[], U extends unknown[]>(a: T, b: U):[...T, ...U]{
+//     return [...a, ...b];
+// }
+
+interface Article {
+  nom: string;
+  prix: number;
+  tauxTVA: number;
 }
 
-function peindre(couleur:Couleur){
-    if(couleur === Couleur.Rouge){
-        console.log("Peinture rouge appliquée !");  
-    }
+const listeArticle: Article[] = [
+  { nom: "Ordinateur", prix: 600, tauxTVA: 2 },
+  { nom: "Imprimante", prix: 500, tauxTVA: 5 },
+];
+
+function calculerTotalArticle(article: Article): string {
+  const prixTTC = article.prix * (1 + article.tauxTVA);
+  return `L'article "${article.nom}" coûte ${prixTTC}€ TTC.`;
 }
 
-peindre(Couleur.Rouge)
+console.log(calculerTotalArticle(listeArticle[0]));
+
+
+
