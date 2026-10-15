@@ -183,23 +183,42 @@
 //     return [...a, ...b];
 // }
 
-interface Article {
-  nom: string;
-  prix: number;
-  tauxTVA: number;
+// interface Article {
+//   nom: string;
+//   prix: number;
+//   tauxTVA: number;
+// }
+
+// const listeArticle: Article[] = [
+//   { nom: "Ordinateur", prix: 600, tauxTVA: 2 },
+//   { nom: "Imprimante", prix: 500, tauxTVA: 5 },
+// ];
+
+// function calculerTotalArticle(article: Article): string {
+//   const prixTTC = article.prix * (1 + article.tauxTVA);
+//   return `L'article "${article.nom}" coûte ${prixTTC}€ TTC.`;
+// }
+
+// console.log(calculerTotalArticle(listeArticle[0]));
+
+// type UserRole = "admin" | "moderateur" | "membre";
+
+// interface Utilisateur {
+//   nom: string;
+//   email: string;
+//   role: UserRole;
+// }
+
+// const compte: Utilisateur[] = [
+//   { nom: "Ezechiel", email: "palukuezechiel@gmail.com", role:"admin" },
+// ];
+
+function genererMention(note: number): string {
+  if (note >= 10) {
+    return "Validé";
+  }
+
+  return "Rattrapage";
 }
-
-const listeArticle: Article[] = [
-  { nom: "Ordinateur", prix: 600, tauxTVA: 2 },
-  { nom: "Imprimante", prix: 500, tauxTVA: 5 },
-];
-
-function calculerTotalArticle(article: Article): string {
-  const prixTTC = article.prix * (1 + article.tauxTVA);
-  return `L'article "${article.nom}" coûte ${prixTTC}€ TTC.`;
-}
-
-console.log(calculerTotalArticle(listeArticle[0]));
-
-
+console.log(genererMention(8));
 
