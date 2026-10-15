@@ -119,36 +119,52 @@
 
 // console.log(getOrderStatusMessage("CMD_105"));
 
-type EmailNotification = {
-  type: "email";
-  email: string;
-  sujet: string;
-  message: string;
-};
+// type EmailNotification = {
+//   type: "email";
+//   email: string;
+//   sujet: string;
+//   message: string;
+// };
 
-type SMSNotification = {
-  type: "sms";
-  telephone: string;
-  message: string;
-};
+// type SMSNotification = {
+//   type: "sms";
+//   telephone: string;
+//   message: string;
+// };
 
-type AppNotification = EmailNotification | SMSNotification;
+// type AppNotification = EmailNotification | SMSNotification;
 
-const sendNotification = (notification: AppNotification): void => {
-  if (notification.type === "email") {
-    console.log(
-      `Email envoyé à ${notification.email} (Sujet: ${notification.sujet}): ${notification.sujet}`,
-    );
-  } else if (notification.type === "sms") {
-    console.log(
-      `SMS envoyé au ${notification.telephone}: ${notification.message}`,
-    );
-  }
-};
+// const sendNotification = (notification: AppNotification): void => {
+//   if (notification.type === "email") {
+//     console.log(
+//       `Email envoyé à ${notification.email} (Sujet: ${notification.sujet}): ${notification.sujet}`,
+//     );
+//   } else if (notification.type === "sms") {
+//     console.log(
+//       `SMS envoyé au ${notification.telephone}: ${notification.message}`,
+//     );
+//   }
+// };
 
-sendNotification({
-  type: "email",
-  email: "test@test.com",
-  sujet: "Hello",
-  message: "Hi",
-});
+// sendNotification({
+//   type: "email",
+//   email: "test@test.com",
+//   sujet: "Hello",
+//   message: "Hi",
+// });
+
+// type Coordonnees = [x: number, y: number];
+// const point:Coordonnees = [10, 25];
+
+enum Couleur {
+  Rouge = "ROUGE",
+  Bleu = "BLEU",
+}
+
+function peindre(couleur:Couleur){
+    if(couleur === Couleur.Rouge){
+        console.log("Peinture rouge appliquée !");  
+    }
+}
+
+peindre(Couleur.Rouge)
